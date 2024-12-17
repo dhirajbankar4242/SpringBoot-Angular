@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
 import { authGuard } from './service/auth.guard';
 import { LogInComponent } from './log-in/log-in.component';
-import { ErrorComponent } from './error/error.component';
 
 export const routes: Routes = [
     {
@@ -13,5 +12,4 @@ export const routes: Routes = [
     },            
 
     {path: "", component: LogInComponent},
-    {path:'error', component:ErrorComponent},
 ];

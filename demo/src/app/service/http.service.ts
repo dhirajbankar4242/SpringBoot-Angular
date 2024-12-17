@@ -37,31 +37,5 @@ export class HttpService {
       })
     );
   }
-
-  public refreshAccessToken(refreshToken: any) {
-    this.loaderService.startLoading();
-    const header = new HttpHeaders({
-      'token': refreshToken
-    });
-    return this.http.get(this.baseUrl + 'auth/refresh', {
-      headers: header,
-      responseType: 'text'
-    }).pipe(
-      timeout(this.defaultTimeout),
-      finalize(() => {
-        this.loaderService.stopLoading();
-      })
-    );
-  }
-
-  checkId(invitationToken: any): Observable<boolean> {
-    return this.http.get<{ exists: boolean }>(`${this.baseUrl}auth/check/${invitationToken}`)
-      .pipe(map(response => response.exists));
-  }
-
-  checkId_1(invitationToken: any): Observable<boolean> {
-    return this.http.get<{ exists: boolean }>(`${this.baseUrl}auth/check_forget_token/${invitationToken}`)
-      .pipe(map(response => response.exists));
-  }
-
+  
 }

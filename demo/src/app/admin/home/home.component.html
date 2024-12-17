@@ -1,3 +1,4 @@
+<div class="btn btn-sm btn-primary float-end" (click)="signOut()">Logout</div>
 <div class="mb-5 container bg-light-subtle">
     <h3 class="mt-4 text-uppercase text-center">Kosin Data Form</h3>
     <form [formGroup]="dataForm" (ngSubmit)="onSaveData()">
@@ -39,7 +40,7 @@
               </div>
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary float-end" [disabled]="!dataForm.valid"> <i class="bi bi-check-circle"></i>Submit </button>
+                <button type="submit" class="btn btn-primary float-end" [disabled]="!dataForm.valid"> <i class="bi bi-check-circle"></i> Submit </button>
             </div>
           </div>
 
@@ -75,8 +76,12 @@
           <td>
             <button type="button" class="btn btn-outline-success btn-sm" [disabled]="data.alarm === 'Triggered'" (click)="action(data)"><i class="bi bi-pencil"></i></button>
           </td>
+          <!-- <td>
+            <button type="button" class="btn btn-outline-success btn-sm" (click)="action_2(data)"><i class="bi bi-pencil"></i></button>
+          </td> -->
         </tr>
       </tbody>
     </table>
   </div>
-</div><li><a class="dropdown-item" (click)="signOut()">Logout</a></li>
+</div>
+

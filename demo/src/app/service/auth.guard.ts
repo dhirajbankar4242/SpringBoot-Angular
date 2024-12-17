@@ -1,6 +1,6 @@
-import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
-import { StorageService } from './storage.service';
+import { CanActivateFn, Router } from '@angular/router';
 import { Global } from '../admin/dto/dtos';
+import { StorageService } from './storage.service';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const router = new Router()

@@ -76,6 +76,26 @@ export class HomeComponent {
     });
   }
 
+  action_2(data:any){
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You won\'t be able to revert this!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, trigger it!',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        this.service.put(`censorDetails/trigger2`, data).subscribe(response=>{          
+          this.getData();
+        })
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+      }
+    });
+  }
+
   signOut() {
     this.storage.clear().then(() => {
       this.permissionService.flushPermissions();

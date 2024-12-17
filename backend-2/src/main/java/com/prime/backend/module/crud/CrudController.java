@@ -33,6 +33,11 @@ public class CrudController {
         service.update(dto);
     }
 
+    @PutMapping("/trigger2")
+    public void update2(@RequestBody CrudDto dto) throws NoRecordFoundException, ApplicationException {
+        service.update2(dto);
+    }
+
     @DeleteMapping("{id}")
     public void delete(@PathVariable String id) throws NoRecordFoundException{
 

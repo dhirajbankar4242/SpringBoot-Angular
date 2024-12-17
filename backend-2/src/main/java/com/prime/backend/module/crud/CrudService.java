@@ -48,6 +48,22 @@ public class CrudService {
     }
 
     @Transactional(rollbackFor = Exception.class)
+    public void update2(CrudDto  dto) throws NoRecordFoundException, ApplicationException{
+        Optional<Crud> crudOptional =  repository.findById(dto.getId());
+        if(crudOptional.isPresent()){
+            Crud crud = crudOptional.get();
+            if(crud.getAlarm().equalsIgnoreCase("Triggered")){
+                crud.setAlarm("No status");
+            }else{
+                crud.setAlarm("Triggered");
+            }
+            repository.save(crud);
+        }else{
+            throw new NoRecordFoundException();
+        }
+    }
+
+    @Transactional(rollbackFor = Exception.class)
     public void delete(String id) throws NoRecordFoundException{
 
     }

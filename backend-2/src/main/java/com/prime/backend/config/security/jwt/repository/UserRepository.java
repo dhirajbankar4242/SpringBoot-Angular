@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<KosinUser, String> {
      KosinUser findByUsername(String username);
 
-    @Query(value = "select id from kosin_user u where u.username = :username", nativeQuery = true)
+    @Query(value = "select id, tenant_id AS tenantId, tenant_type AS tenantType from kosin_user u where u.username = :username", nativeQuery = true)
     Optional<AuthUserProjection> getAuthUserByLoginId(String username);
 
 }
