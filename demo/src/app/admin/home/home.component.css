@@ -1,0 +1,55 @@
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+}
+
+.card-registration .select-arrow {
+    top: 13px;
+}
+
+.plan-card {
+    transition: border-color 0.3s, color 0.3s;
+}
+
+.plan-card.border-primary {
+    border-width: 2px;
+}
+
+terms {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    h2 {
+        color: #333;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    a {
+        color: #0074d9;
+        text-decoration: none;
+    }
+
+    button {
+        background-color: #0074d9;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #005ea6;
+    }
+
+}

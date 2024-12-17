@@ -1,0 +1,82 @@
+<div class="mb-5 container bg-light-subtle">
+    <h3 class="mt-4 text-uppercase text-center">Kosin Data Form</h3>
+    <form [formGroup]="dataForm" (ngSubmit)="onSaveData()">
+
+      <div class="row g-2">
+        <div class="col-12">
+
+          <div class="card">
+            <div class="card-header">Enter Details</div>
+            <div class="card-body">
+              <div class="row g-2">  
+                <div class="col-12">
+                    <div class="form-outline">
+                      <label for="humidity">Entry Name</label>
+                      <input type="text" id="entryName" class="form-control" formControlName="entryName" />
+                    </div>
+                  </div>  
+                <div class="col-6">
+                  <div class="form-outline">
+                    <label for="humidity">Humidity</label>
+                    <input type="number" id="name" class="form-control" formControlName="humidity" />
+                  </div>
+                </div>  
+                <div class="col-6">
+                  <div class="form-outline">
+                    <label for="temparature">Temprature</label>
+                    <input type="number" id="temparature" formControlName="temp" class="form-control" />
+                  </div>
+                </div>  
+                <div class="col-6">
+                    <div class="form-outline">
+                      <label for="alarm">Alarm</label>
+                      <select id="alarm" formControlName="alarm" class="form-select">
+                        <option value="No Status">No Status</option>
+                        <!-- <option value="Triggered">Triggered</option> -->
+                      </select>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary float-end" [disabled]="!dataForm.valid"> <i class="bi bi-check-circle"></i>Submit </button>
+            </div>
+          </div>
+
+        </div>        
+      </div>
+
+    </form>
+  </div>
+
+
+  <div class="mt-5 container bg-light-subtle">
+    <h3 class="mt-4 mb-4 text-uppercase text-center">Kosin Data Censor Details</h3>
+  <div class="table-responsive">
+    <table class="table table-striped-columns border-primary">
+      <thead>
+        <tr class="text-center">
+          <th scope="col"> Device Id </th>
+          <th scope="col"> Entry Name </th>
+          <th scope="col"> Humidity </th>
+          <th scope="col"> Temp </th>
+          <th scope="col"> Alarm </th>
+          <th scope="col"> Action </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center" *ngFor="let data of data | orderBy: 'id'; let i = index" class="text-center align-middle">
+          <!-- <th scope="row">{{i+1}}</th> -->
+          <td> {{data.id}} </td>
+          <td> {{data.entryName}} </td>
+          <td> {{data.humidity}} </td>
+          <td> {{data.temp}} </td>
+          <td> {{data.alarm}} </td>
+          <td>
+            <button type="button" class="btn btn-outline-success btn-sm" [disabled]="data.alarm === 'Triggered'" (click)="action(data)"><i class="bi bi-pencil"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div><li><a class="dropdown-item" (click)="signOut()">Logout</a></li>
